@@ -1,11 +1,41 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import MenuItem from "../components/MenuItem";
 import menuitem from "../../public/data/menuitem.json"
+import { useState } from "react";
+import Modal from "./Modal";
 
+type Address = {
+    id: number;
+    title: string;
+    details: string;
+};
 
 function Header() {
+    const [isModalOpen, setModalOpen] = useState<boolean>(false)
+    const [addresses, setAddresses] = useState<Address[]>([])
+    const [selectAddress, setSelectAddress] = useState<Address | null>(null)
 
+    useEffect(() => {
+        fetch("/data/addresses.json")
+            .then((res) => res.json() as Promise<Address[]>)
+            .then((data) => {
+                setAddresses(data);
+                if (data.length > 0) {
+                    setSelectAddress(data[0]);
+                }
+            });
+    }, []);
     
+    const handleOnClick = () => {
+        console.log('clicked')
+        setModalOpen(true)
+    }
+
+   const handleSelectAddress = (address: Address) => {
+    setSelectAddress(address);
+    setModalOpen(false)
+   }
     return (
         <header className="p-2 shadow-md">
             <div className=" flex p-4 justify-between" > 
@@ -40,12 +70,13 @@ function Header() {
 
 
                     
-                    <div className="flex" >
-                        <div className="flex items-center space-x-2">
+                    <div onClick={handleOnClick} className="flex " >
+                        <div onClick={handleOnClick}className="flex items-center space-x-2 cursor-pointer">
                         <img src="/images/bottom-purple.svg" alt="arrow" className="w-3 h-3"/>
-                        <p className=" text-xs text-gray-500">
-                            تهران دانشگاه تهران کارگرشما
+                        <p className="text-xs text-gray-500">
+                        {selectAddress ? (selectAddress.details.length > 20 ? selectAddress.details.substring(0,20) + "..." : selectAddress.details) : "آدرس خود را انتخاب کنید"}
                         </p>
+
                         <img src="/images/location.svg" alt="location"/>
                         </div>
                     
@@ -63,6 +94,36 @@ function Header() {
                 </div>
             </div>
                 
+            <Modal title="انتخاب آدرس" isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+    <div  className="space-y-4">
+        {addresses.map((address) => (
+            <div key={address.id} className="border p-3 rounded-lg flex justify-between items-center">
+                
+                <div className="flex space-x-2">
+                    <button className="text-green-500"><img src="/images/edit.svg" alt="" /></button>
+                    <button className="text-red-500"><img src="/images/delete.svg" alt="" /></button>
+                </div>
+                
+                <div className="text-right"> 
+                    <p>{address.title}</p>
+                    <p className="text-sm text-gray-500">{address.details}</p>
+                </div>
+                <input 
+                type="radio"
+                name="address"
+                checked={selectAddress?.id == address.id}
+                onChange={() => handleSelectAddress(address)}
+                className="w-5 h-5 border-2 border-gray-400 rounded-full checked:bg-transparent focus:right-0 relative" />
+
+            </div>
+        ))}
+    </div>
+    <div className="text-right">
+    <button className="text-green-600 mt-4">+ ساخت آدرس جدید</button>
+    </div>
+    
+</Modal>
+
         </header>
     );
     
