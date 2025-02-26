@@ -4,6 +4,7 @@ import MenuItem from "../components/MenuItem";
 import menuitem from "../../public/data/menuitem.json"
 import { useState } from "react";
 import Modal from "./Modal";
+import OrdersModal from "./OrdersModal";
 
 type Address = {
     id: number;
@@ -11,10 +12,30 @@ type Address = {
     details: string;
 };
 
+type orders = {
+    id: number;
+    title: string;
+    image: string;
+    date: string;
+    time: string;
+}
+
 function Header() {
     const [isModalOpen, setModalOpen] = useState<boolean>(false)
     const [addresses, setAddresses] = useState<Address[]>([])
     const [selectAddress, setSelectAddress] = useState<Address | null>(null)
+    const [isOrdersModalOpen, setIsOrdersModalOpen] = useState<boolean>(false)
+    const [orders, SetOrders] = useState<orders[]>([])
+    
+    useEffect (() => {
+        fetch("/data/OrdersList.json")
+        .then((res)=> res.json() as Promise<orders[]>)
+        .then ((data)=> {
+            SetOrders(data)
+        })
+
+        console.log(orders)
+    },[])
 
     useEffect(() => {
         fetch("/data/addresses.json")
@@ -28,8 +49,12 @@ function Header() {
     }, []);
     
     const handleOnClick = () => {
-        console.log('clicked')
-        setModalOpen(true)
+                setModalOpen(true)
+    }
+
+    const handleOnClickOrders = () => 
+    {
+        setIsOrdersModalOpen(true)
     }
 
    const handleSelectAddress = (address: Address) => {
@@ -41,7 +66,7 @@ function Header() {
             <div className=" flex p-4 justify-between" > 
                 
                     <div className=" flex items-center space-x-8 ">
-                        <button className="flex space-x-2">
+                        <button onClick={handleOnClickOrders} className="flex space-x-2">
                             <p className="hidden lg:block"> سفارش ها</p>
                             <img src="/images/order.svg" alt="order" className="w-5 h-5" />
                         </button>
@@ -123,6 +148,43 @@ function Header() {
     </div>
     
 </Modal>
+            <OrdersModal isOpen={isOrdersModalOpen} onClose={()=>{setIsOrdersModalOpen(false)}}>
+                            <h2 className="text-right mt-4 mr-4 text-xs">سفارش های پیشین</h2>
+
+                {orders.map((order) => (
+                    <div key={order.id} className="border p-3 m-4 rounded-xl">
+                        {/* بخش اصلی سفارش */}
+                        <div className="flex justify-end items-center">
+                            
+                            {/* اطلاعات سفارش */}
+                            <div dir="rtl" className="mr-4">
+                                <div>
+                                    <span>{order.title}</span>
+                                </div>
+                                <div className="mt-1">
+                                    <span className="text-xs text-gray-600">{order.date}</span>
+                                    <span className="text-xs text-gray-600 mr-4">{order.time}</span>
+                                </div>
+                            </div>
+
+                            {/* تصویر سفارش */}
+                            <div>
+                                <img className="rounded-[50%] h-[50px]" src={order.image} alt="pizzalogo" />
+                            </div>
+                        </div>
+
+                        <div className="bg-[#50bd7118] rounded-xl flex items-center justify-between p-2 mt-4"  dir="rtl">
+                            <span className="text-[10px]"> نظرتان را درباره این سفارش به اشتراک بگذارید</span>
+                            <button className="text-xs text-green-600"> ثبت نظر </button>
+                        </div>
+
+                        <div className="flex items-center justify-between mt-2">
+                            <button className="bg-[#92929233] flex p-2 border items-center rounded-xl justify-center text-[14px] w-[48%]"> مشاهده فاکتور<img className="ml-2 h-4" src="images/refresh.svg" alt="" /></button>
+                            <button className="bg-[#92929233] flex p-2 border items-center justify-center rounded-xl text-[14px] w-[48%]" > سفارش مجدد <img className="ml-2 h-4" src="images/alert.png" alt="alert" /></button>
+                        </div>
+                    </div>
+                ))}
+            </OrdersModal>
 
         </header>
     );
