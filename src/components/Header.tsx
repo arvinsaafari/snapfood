@@ -2,9 +2,10 @@
 import React, { useEffect } from "react";
 import MenuItem from "../components/MenuItem";
 import menuitem from "../../public/data/menuitem.json"
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Modal from "./Modal";
 import OrdersModal from "./OrdersModal";
+import  ProfileMenu from "./ProfileMenu";
 
 type Address = {
     id: number;
@@ -21,6 +22,8 @@ type orders = {
 }
 
 function Header() {
+    const profileButtonRef = useRef<HTMLButtonElement | null>(null)
+    const [isProfilMenuOpen, SetIsProfileMenuOpen] = useState<boolean>(false)
     const [isModalOpen, setModalOpen] = useState<boolean>(false)
     const [addresses, setAddresses] = useState<Address[]>([])
     const [selectAddress, setSelectAddress] = useState<Address | null>(null)
@@ -62,7 +65,7 @@ function Header() {
     setModalOpen(false)
    }
     return (
-        <header className="p-2 shadow-md">
+        <header className="p-2 relative shadow-md">
             <div className=" flex p-4 justify-between" > 
                 
                     <div className=" flex items-center space-x-8 ">
@@ -70,9 +73,15 @@ function Header() {
                             <p className="hidden lg:block"> سفارش ها</p>
                             <img src="/images/order.svg" alt="order" className="w-5 h-5" />
                         </button>
-                        <button>
+                        <button 
+                        ref = {profileButtonRef}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            SetIsProfileMenuOpen(prev => !prev);
+                                    }}>
+
                             <img src="/images/user.svg" alt="user" className="w-5 h-5" />
-                        </button>
+                            </button>
                         <button>
                             <img src="/images/search.svg" alt="search" className="w-5 h-5 block lg:hidden"/>
                         </button>
@@ -185,6 +194,7 @@ function Header() {
                     </div>
                 ))}
             </OrdersModal>
+            <ProfileMenu buttonRef={profileButtonRef}isOpen={isProfilMenuOpen} setIsOpen={SetIsProfileMenuOpen}/>
 
         </header>
     );
