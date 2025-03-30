@@ -1,0 +1,14 @@
+[
+  { "title": "ایرانی", "image": "/images/category/irani.jpg" },
+  { "title": "فست فود", "image": "./images/category/fastfood.jpg" },
+  { "title": "کباب", "image": "/images/category/kabab.jpg" },
+  { "title": "پیتزا", "image": "/images/category/pizza.jpg" },
+  { "title": "برگر", "image": "/images/category/burger.jpg" },
+  { "title": "ساندویچ", "image": "/images/category/sandwich.jpg" },
+  { "title": "سوخاری", "image": "/images/category/sokhari.jpg" },
+  { "title": "پاستا", "image": "/images/category/pasta.jpg" },
+  { "title": "سالاد", "image": "/images/category/salad.jpg" },
+  { "title": "دریایی", "image": "/images/category/irani.jpg" },
+  { "title": "بین الملل", "image": "/images/category/asian.jpg" },
+  { "title": "گیلانی", "image": "/images/category/gilani.jpg" }
+]

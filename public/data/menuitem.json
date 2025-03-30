@@ -1,13 +1,12 @@
 [
-    { "id": 1, "title": "رستوران", "icon": "/images/restaurant.png"},
-    { "id": 2, "title": "سوپرمارکت", "icon": "/images/supermarket.png"},
-    { "id": 3, "title": "کافه", "icon": "/images/cafe.png"},
-    { "id": 4, "title": "شیرینی", "icon": "/images/dessert.png"},
-    { "id": 5, "title": "نانوايی", "icon": "/images/bakery.png"},
-    { "id": 6, "title": "میوه", "icon": "/images/fruit.png"},
-    { "id": 7, "title": "پروتئین", "icon": "/images/protein.png"},
-    { "id": 8, "title": "آبمیوه بستنی", "icon": "/images/juice-icecream.png"},
-    { "id": 9, "title": "آجیل", "icon": "/images/nuts.png"},
-    { "id": 10, "title": "سایر", "icon": "/images/more.png"}
-  ]
-  
+  { "id": 1, "title": "رستوران", "icon": "/images/restaurant.png" },
+  { "id": 2, "title": "سوپرمارکت", "icon": "/images/supermarket.png" },
+  { "id": 3, "title": "کافه", "icon": "/images/cafe.png" },
+  { "id": 4, "title": "شیرینی", "icon": "/images/dessert.png" },
+  { "id": 5, "title": "نانوايی", "icon": "/images/bakery.png" },
+  { "id": 6, "title": "میوه", "icon": "/images/fruit.png" },
+  { "id": 7, "title": "پروتئین", "icon": "/images/protein.png" },
+  { "id": 8, "title": "آبمیوه بستنی", "icon": "/images/juice-icecream.png" },
+  { "id": 9, "title": "آجیل", "icon": "/images/nuts.png" },
+  { "id": 10, "title": "سایر", "icon": "/images/more.png" }
+]

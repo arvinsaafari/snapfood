@@ -1,0 +1,70 @@
+[
+  {
+    "title": "رستوران عمارت لاله",
+    "img": "/images/resturant/emarat-lalaeh.jpg",
+    "stars": "۴",
+    "point": "۱۴,۳۰۷",
+    "subjects": "ایرانی, کباب, سنتی",
+    "icon": "/images/resturant/emarat-laleh-icon.jpg",
+    "foods": [
+      {
+        "title": "سینی مخصوص",
+        "img": "/images/foods/sini-makhsos.jpg",
+        "description": "یک سیخ برگ ۳۰۰ گرمی، یک سیخ لقمه ۳۰۰ گرمی، یک سیخ جوجه بدون استخوان ۳۰۰ گرمی، یک سیخ جوجه کامل با استخوان ۹۰۰ گرمی، ۴ عدد برنج قالبی",
+        "point": "۴.۵",
+        "price": 1384000,
+        "isFoodParty": true
+      },
+      {
+        "title": "خوراک سینی عمارت ",
+        "img": "/images/foods/khorak-sini-emarat.jpg",
+        "description": "یک سیخ جوجه کباب با استخوان ۹۰۰ گرمی، یک سیخ جوجه کباب ممتاز سینه مرغ ۳۰۰ گرمی، ۲ سیخ کباب کوبیده گوشت گوسفندی ۱۵۰ گرمی، ۳۰۰ گرم ران مرغ سرخ شده",
+        "point": "۴.۱",
+        "price": 930000,
+        "isFoodParty": true
+      },
+      {
+        "title": "چلوکباب چنجه گوسفندی",
+        "img": "/images/foods/chelo-kabab-chenje.jpg",
+        "description": "یک سیخ کباب چنجه گوشت مغز راسته گوسفندی ۲۰۰ گرمی، ۳۰۰ گرم برنج ایرانی",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      },
+
+      {
+        "title": "چلوکباب چنجه گوسفندی",
+        "img": "/images/foods/chelo-kabab-chenje.jpg",
+        "description": "یک سیخ کباب چنجه گوشت مغز راسته گوسفندی ۲۰۰ گرمی، ۳۰۰ گرم برنج ایرانی",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      },
+
+      {
+        "title": "چلوکباب چنجه گوسفندی",
+        "img": "/images/foods/chelo-kabab-chenje.jpg",
+        "description": "یک سیخ کباب چنجه گوشت مغز راسته گوسفندی ۲۰۰ گرمی، ۳۰۰ گرم برنج ایرانی",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      },
+      {
+        "title": "چلوکباب چنجه گوسفندی",
+        "img": "/images/foods/chelo-kabab-chenje.jpg",
+        "description": "یک سیخ کباب چنجه گوشت مغز راسته گوسفندی ۲۰۰ گرمی، ۳۰۰ گرم برنج ایرانی",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      },
+      {
+        "title": "چلوکباب چنجه گوسفندی",
+        "img": "/images/foods/chelo-kabab-chenje.jpg",
+        "description": "یک سیخ کباب چنجه گوشت مغز راسته گوسفندی ۲۰۰ گرمی، ۳۰۰ گرم برنج ایرانی",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      }
+    ]
+  }
+]

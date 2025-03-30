@@ -1,4 +1,16 @@
 [
-    {"id": 1, "title": "فست فود الوپیتزا" , "date": "دوشنبه ۲۱ مرداد" , "time": "۱۹:۵۲", "image": "images/pizzalogo.jpg"},
-    {"id": 2, "title": "فست فود الوپیتزا" , "date": "دوشنبه ۲۱ مرداد" , "time": "۱۹:۵۲", "image": "images/pizzalogo.jpg"}
+  {
+    "id": 1,
+    "title": "فست فود الوپیتزا",
+    "date": "دوشنبه ۲۱ مرداد",
+    "time": "۱۹:۵۲",
+    "image": "images/pizzalogo.jpg"
+  },
+  {
+    "id": 2,
+    "title": "فست فود الوپیتزا",
+    "date": "دوشنبه ۲۱ مرداد",
+    "time": "۱۹:۵۲",
+    "image": "images/pizzalogo.jpg"
+  }
 ]
