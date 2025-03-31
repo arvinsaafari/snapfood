@@ -21,7 +21,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         onClick={(e) => e.stopPropagation()}
         className="bg-white p-6 rounded-xl shadow-xl w-full max-w-lg relative flex flex-col"
       >
-        {/* دکمه بستن بالای سمت راست */}
         <button
           onClick={onClose}
           className="absolute top-3 right-3 p-2 hover:opacity-70 transition"
@@ -29,10 +28,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
           <img src="/images/exit.svg" alt="Close" />
         </button>
 
-        {/* عنوان مدال */}
         <h2 className="text-xl font-bold mb-4 text-center">{title}</h2>
 
-        {/* محتوای مدال */}
         <div>{children}</div>
       </div>
     </div>

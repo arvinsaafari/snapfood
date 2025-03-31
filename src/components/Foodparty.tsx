@@ -10,7 +10,8 @@ interface FoodItem {
   isFoodParty: boolean; // اضافه کردن isFoodParty
 }
 
-interface Resturant {
+interface Restaurant {
+  id: number;
   title: string;
   img: string;
   stars: string;
@@ -22,11 +23,11 @@ interface Resturant {
 
 function Foodparty() {
   const toPersianDigits = (num: number) => num.toLocaleString("fa-IR");
-  const [data, setData] = useState<Resturant[]>([]);
+  const [data, setData] = useState<Restaurant[]>([]);
 
   useEffect(() => {
     fetch("/data/resturant.json")
-      .then((res) => res.json() as Promise<Resturant[]>)
+      .then((res) => res.json() as Promise<Restaurant[]>)
       .then((res) => setData(res));
   }, []);
 

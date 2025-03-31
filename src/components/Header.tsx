@@ -36,8 +36,6 @@ function Header() {
       .then((data) => {
         SetOrders(data);
       });
-
-    console.log(orders);
   }, []);
 
   useEffect(() => {
@@ -190,9 +188,7 @@ function Header() {
 
         {orders.map((order) => (
           <div key={order.id} className="border p-3 m-4 rounded-xl">
-            {/* بخش اصلی سفارش */}
             <div className="flex justify-end items-center">
-              {/* اطلاعات سفارش */}
               <div dir="rtl" className="mr-4">
                 <div>
                   <span>{order.title}</span>
@@ -205,7 +201,6 @@ function Header() {
                 </div>
               </div>
 
-              {/* تصویر سفارش */}
               <div>
                 <img
                   className="rounded-[50%] h-[50px]"

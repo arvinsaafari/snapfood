@@ -3,6 +3,7 @@ import Category from "@/components/Category";
 import category from "../../public/data/category.json";
 import CountdownTimer from "@/components/CountdownTimer";
 import Foodparty from "@/components/Foodparty";
+import RestaurantsCard from "@/components/RestaurantCard";
 
 console.log("salam");
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
           dir="rtl"
           className="h-auto overflow-hidden p-6 md:flex
       rounded-t-md rounded-bl- rounded-br-[15%] xl:w-[95%]
-      container w-[90%] mx-auto mt-16 px-4 bg-gradient-to-r 
+      container w-[95%] mx-auto mt-16 px-4 bg-gradient-to-r 
       from-[#FA5A98] to-[#E32892] mb-8 xl:flex"
         >
           <div className=" p-3 flex flex-col justify-around">
@@ -60,6 +61,26 @@ export default function Home() {
           </div>
 
           <Foodparty />
+        </div>
+
+        <div dir="rtl" className=" w-[93%] mx-auto">
+          <div className="flex justify-between mb-8">
+            <h2 className="text-3xl"> تازه ترین ها در اسنپ فود </h2>
+            <button className="text-green-600"> مشاهده همه </button>
+          </div>
+          <div className="grid  lg:grid-cols-3 sm:grid-cols-2 gap-4">
+            <RestaurantsCard />
+          </div>
+        </div>
+
+        <div dir="rtl" className=" w-[93%] mx-auto">
+          <div className="flex justify-between mb-8">
+            <h2 className="text-3xl"> برترین ها </h2>
+            <button className="text-green-600"> مشاهده همه </button>
+          </div>
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-4">
+            <RestaurantsCard />
+          </div>
         </div>
       </main>
     </div>
