@@ -9,7 +9,22 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "snapp2";
+  src: url("/fonts/Vazir.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: "MyCustomFont", sans-serif;
-  background: rgb(242, 242, 242);
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  @apply !text-xl !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply bg-white shadow-xl p-6 rounded-[50%] !text-[#FF2CB5] !important;
 }
