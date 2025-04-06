@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div dir="rtl" className="bg-[#F9FAFB] p-8 lg:flex">
+    <div dir="rtl" className="bg-[#F9FAFB] p-8 lg:flex mt-6">
       <div className="w-3/4 ">
         <div className="flex items-center">
           <img className="h-14 ml-4" src="images/logo.png" alt="logo" />

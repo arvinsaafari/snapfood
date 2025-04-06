@@ -18,7 +18,9 @@ function CityList() {
   return (
     <div dir="rtl" className="p-8 grid grid-cols-3 gap-4 lg:grid-cols-4">
       {data.map((item, index) => (
-        <div className="text-xs  text-gray-500">{item.province}</div>
+        <div key={index} className="text-xs  text-gray-500">
+          {item.province}
+        </div>
       ))}
     </div>
   );

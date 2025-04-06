@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import Category from "@/components/Category";
+import CategoryMenu from "@/components/CategoryMenu";
 import category from "../../public/data/category.json";
 import CountdownTimer from "@/components/CountdownTimer";
 import Foodparty from "@/components/Foodparty";
@@ -21,7 +21,7 @@ export default function Home() {
         >
           <h2 className="text-xl col-span-full">دسته بندی ها</h2>
           {[...category].map(({ title, image }) => (
-            <Category key={title} title={title} img={image} />
+            <CategoryMenu key={title} title={title} img={image} />
           ))}
         </div>
 

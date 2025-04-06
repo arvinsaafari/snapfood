@@ -23,6 +23,7 @@ interface Restaurant {
   point: string;
   subjects: string;
   icon: string;
+  category: string;
   foods: FoodItem[];
 }
 

@@ -1,24 +1,44 @@
-interface CategoryProp {
-  img: string;
+"use client";
+import { useState, useEffect } from "react";
+interface Restaurants {
   title: string;
+  image: string;
 }
 
-function Category({ img, title }: CategoryProp) {
+interface categoryProps {
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
+}
+
+function Category({ selectedCategory, setSelectedCategory }: categoryProps) {
+  const [data, setData] = useState<Restaurants[]>([]);
+
+  useEffect(() => {
+    fetch("/data/category.json")
+      .then((res) => res.json() as Promise<Restaurants[]>)
+      .then((res) => setData(res));
+  }, []);
+
   return (
-    <div className="relative border-white border-4 rounded-xl overflow-hidden shadow-lg cursor-pointer h-[110px]">
-      <div className="bg-white px-4 py-1  absolute bottom-0 flex rounded-tl-xl items-center ">
-        <p className="text-xl text-gray-700"> {title} </p>
-        <span className="mr-3">
-          {" "}
-          <img
-            className="transition-transform duration-200 hover:-translate-x-1 h-4"
-            src="/images/left-purple.svg"
-            alt=""
-          />
-        </span>
+    <div className="p-6 grid grid-cols-1 shadow-md rounded-xl">
+      <div
+        className={`cursor-pointer flex items-center p-2 rounded-xl hover:bg-gray-100 ${selectedCategory == "همه دسته بندی ها" ? "bg-gray-100 rounded-xl" : ""}`}
+        onClick={() => setSelectedCategory("همه دسته بندی ها")}
+      >
+        <span className="text-gray-700 text-lg">{"همه دسته بندی ها"}</span>
       </div>
-      <img src={img} alt="category-img" />
+      {data.map(({ title, image }, index) => (
+        <div
+          className={`cursor-pointer p-2 flex rounded-xl items-center hover:bg-gray-100 ${selectedCategory == title ? "bg-gray-100 rounded-xl" : ""}`}
+          key={index}
+          onClick={() => setSelectedCategory(title)}
+        >
+          <img className="h-8 w-8 rounded-[50%] ml-2" src={image} />
+          <span className="text-gray-700 text-sm">{title}</span>
+        </div>
+      ))}
     </div>
   );
 }
+
 export default Category;

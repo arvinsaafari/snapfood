@@ -7,6 +7,7 @@
     "point": "۱۴,۳۰۷",
     "subjects": "ایرانی, کباب, سنتی",
     "icon": "/images/resturant/emarat-laleh-icon.jpg",
+    "category": "همه دسته بندی ها",
     "foods": [
       {
         "title": "سینی مخصوص",
@@ -77,6 +78,7 @@
     "point": "۸۴,۳۳۰",
     "subjects": "فست فود پیتزا ساندویچ",
     "icon": "/images/resturant/shila-icon.jpg",
+    "category": "فست فود",
     "foods": [
       {
         "title": "پیتزا فیکس مخلوط",
@@ -146,6 +148,125 @@
     "point": "۵۴,۲۵۱",
     "subjects": "ایرانی, سنتی",
     "icon": "/images/resturant/sadrsan-icon.jpg",
+    "category": "کباب",
+    "foods": [
+      {
+        "title": "چلو جوجه کباب مخصوص",
+        "img": "/images/foods/jooje-makhsos.jpg",
+        "description": "یک سیخ سینه مرغ زعفرانی ۳۰۰ گرمی، ۳۵۰ گرم برنج ایرانی، کره حیوانی، گوجه کبابی",
+        "point": "۴.۸",
+        "price": 215000,
+        "discountPrice": 193500,
+        "isFoodParty": true
+      },
+      {
+        "title": "چلو خورشت قورمه سبزی",
+        "img": "/images/foods/ghorme-sabzi.jpg",
+        "description": "۴۰۰ گرم برنج اعلا ایرانی، ۸۰ گرم گوشت ران گوسفند، ته چین زعفرانی",
+        "point": "۴.۸",
+        "price": 165000,
+        "discountPrice": 140250,
+        "isFoodParty": true
+      },
+      {
+        "title": "چلوکباب لقمه",
+        "img": "/images/foods/loghme-kabab.jpg",
+        "description": "یک سیخ کباب ۲۰۰ گرمی با گوشت گوساله و گوسفندی، ۴۰۰ گرم برنج اعلا ایرانی، کره حیوانی، گوجه کبابی",
+        "point": "۴.۸",
+        "price": 229000,
+        "discountPrice": 206100,
+        "isFoodParty": false
+      },
+      {
+        "title": "ته چین مرغ",
+        "img": "/images/foods/tahchin.jpg",
+        "description": "۵۰۰ گرم ته چین زعفرانی با برنج اعلا، ۳۰ گرم زرشک، ۱۲۰ گرم مرغ ریش‌ریش شده طعم‌دار",
+        "point": "۴.۸",
+        "price": 210000,
+        "discountPrice": 189000,
+        "isFoodParty": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "پیتزا شیلا (چهار راه ولیعصر)",
+    "img": "/images/resturant/pizza-shila.jpg",
+    "stars": "۴.۷",
+    "point": "۸۴,۳۳۰",
+    "subjects": "فست فود پیتزا ساندویچ",
+    "icon": "/images/resturant/shila-icon.jpg",
+    "category": "پیتزا",
+    "foods": [
+      {
+        "title": "پیتزا فیکس مخلوط",
+        "img": "/images/foods/fix-makhlot.jpg",
+        "description": "ژامبون گوشت و مرغ، هات داگ فرانکفورتر، قارچ، زیتون، گوجه، فلفل دلمه ای، پنیر موزارلا، سس مخصوص، سیب زمینی سرخ شده",
+        "point": "۴.۷",
+        "price": 1384000,
+        "isFoodParty": true
+      },
+      {
+        "title": "پیتزا چیکن استروگانوف (۲۳ سانتی متری) ",
+        "img": "/images/foods/chiken.jpg",
+        "description": "مرغ تنوری، سس آلفردو، پنیر مخصوص، پیاز سرخ شده، سیب زمینی سرخ شده",
+        "point": "۴.۸",
+        "price": 208000,
+        "isFoodParty": true
+      },
+      {
+        "title": "پیتزا سوجوک",
+        "img": "/images/foods/sojok.jpg",
+        "description": "دونر گوشت، کالباس سوجوک ۸۰%، قارچ، پنیر موزارلا، کنجد، سس مخصوص، سیب زمینی سرخ شده",
+        "point": "۴.۵",
+        "price": 232000,
+        "isFoodParty": false
+      },
+
+      {
+        "title": "استرامبولی چیکن آلفردو",
+        "img": "/images/foods/estramboli.jpg",
+        "description": "مرغ تنوری، سس آلفردو، پنیر مخصوص، پیاز سرخ شده، سیب زمینی سرخ شده",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": false
+      },
+
+      {
+        "title": "برگر",
+        "img": "/images/foods/burger.jpg",
+        "description": "همبرگر، گوجه، خیارشور، کاهو، سس مخصوص",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      },
+      {
+        "title": "هات داگ کلاسیک",
+        "img": "/images/foods/hotdog-clasick.jpg",
+        "description": "یک سیخ کباب چنجه گوشت مغز راسته گوسفندی ۲۰۰ گرمی، ۳۰۰ گرم برنج ایرانی",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      },
+      {
+        "title": "super-kombo",
+        "img": "/images/foods/super-kombo.jpg",
+        "description": "پیتزا مخلوط ۲۳ سانتی متری، چیکن چیز ژامبو پلاس، استرامبولی استیک پنیری، ۳ عدد نوشابه قوطی",
+        "point": "۴.۵",
+        "price": 490000,
+        "isFoodParty": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "کترینگ صدرسان (فاطمی)",
+    "img": "/images/resturant/sadrsan.jpg",
+    "stars": "۴.۸",
+    "point": "۵۴,۲۵۱",
+    "subjects": "ایرانی, سنتی",
+    "icon": "/images/resturant/sadrsan-icon.jpg",
+    "category": "برگر",
     "foods": [
       {
         "title": "چلو جوجه کباب مخصوص",
