@@ -84,4 +84,6 @@ function FoodCard({ food, variant = "default" }: FoodCardProps) {
   );
 }
 
+FoodCard.displayName = "FoodCard";
+
 export default FoodCard;

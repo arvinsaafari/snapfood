@@ -142,4 +142,6 @@ function Foodparty() {
   );
 }
 
+Foodparty.displayName = "Foodparty";
+
 export default Foodparty;
