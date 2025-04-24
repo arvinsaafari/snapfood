@@ -7,7 +7,7 @@ interface FoodCardProps {
 
 const toPersianDigits = (num: number) => num.toLocaleString("fa-IR");
 
-const FoodCard = ({ food, variant = "default" }: FoodCardProps) => {
+function FoodCard({ food, variant = "default" }: FoodCardProps) {
   if (variant === "foodparty") {
     return (
       <div className="snap-center h-auto mt-4 py-1 px-2 flex items-center flex-col rounded-md bg-white w-[90%] flex-shrink-0 mx-[5%] md:w-[60%] xl:w-[30%] xl:mx-[2%]">
@@ -82,6 +82,6 @@ const FoodCard = ({ food, variant = "default" }: FoodCardProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default FoodCard;

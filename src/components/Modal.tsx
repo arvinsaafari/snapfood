@@ -36,4 +36,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   );
 };
 
+Modal.displayName = "Modal";
+
 export default Modal;
