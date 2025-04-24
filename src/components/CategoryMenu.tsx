@@ -12,7 +12,7 @@ function CategoryMenu({ img, title }: CategoryMenuProp) {
           {" "}
           <img
             className="transition-transform duration-200 hover:-translate-x-1 h-4"
-            src="/images/left-purple.svg"
+            src="/images/icons/left-purple.svg"
             alt=""
           />
         </span>

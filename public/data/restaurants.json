@@ -1,0 +1,148 @@
+[
+  {
+    "id": 1,
+    "title": "پیتزا شیلا (چهار راه ولیعصر)",
+    "img": "/images/restaurants/resimages/pizza-shila/pizza-shila.jpg",
+    "tags": ["فست فود", "پیتزا", "ساندویچ"],
+    "icon": "/images/restaurants/resimages/pizza-shila/pizza-shila-icon.jpg",
+    "category": "فست فود",
+    "discount": {
+      "hasDiscount": true,
+      "percentage": 30
+    },
+    "Addres": "خیابان انقلاب، ضلع شمال غربی چهار راه ولی عصر، پیتزا شیلا (چهارراه ولیعصر)",
+    "rating": {
+      "point": 84308,
+      "star": 4.7
+    },
+    "delivery": {
+      "hasDelivery": true,
+      "deliveryFee": 12400
+    },
+    "woirkingHours": "از ساعت ۱۰:۳۰ تا ۲۲:۰۰",
+    "paymentMethods": "آنلاین",
+    "minimumCart": 140000,
+
+    "comments": [
+      {
+        "userId": 1,
+        "userName": "بهرام",
+        "date": "۱۶ دی ۱۴۰۲",
+        "comment": "عالی",
+        "tags": [
+          "سالاد سزار با مرغ گریل",
+          "استرامبولی رست بیف",
+          "نوشابه قوطی کوکاکولا"
+        ],
+        "star": 5
+      },
+      {
+        "userId": 2,
+        "userName": "سوده",
+        "date": "۱۶ دی ۱۴۰۲",
+        "comment": "طعم عالی، کیفیت خوب، ارسال به موقع.ممنون از شما",
+        "tags": ["چیکن کریسپی", "سالاد کلم", "نوشابه قطی کوکاکولا زیرو"],
+        "star": 5
+      },
+      {
+        "userId": 3,
+        "userName": "علیرضا",
+        "date": "۱۷ آبان ۱۴۰۲",
+        "comment": "کلا پیتزاش خوشمزه و تازه بود، سالاد سزار خوب بود ولی نه عالی، سیب زمینی کنار پیتزا خشک و خیلی چرب و مونده بود.",
+        "tags": [
+          "چیکن کریسپی",
+          "پیتزا فیکس مرغ و شوید ۱۰*۲۳ متری",
+          "سالادسزار با مرغ سوخاری پنیزیو"
+        ],
+        "star": 5,
+        "replay": {
+          "userId": "snapfood",
+          "comment": "علیرضای  عزیز، از همراهی شما سپاس‌گزاریم و خوشحالیم که نظرتان را با ما در میان گذاشتید. مورد ذکرشده بررسی می‌شود."
+        }
+      }
+    ],
+
+    "foods": [
+      {
+        "category": "کمبو",
+        "title": "سوپر کمبو",
+        "img": "/images/restaurants/foods/pizza-shila/super-combo.jpg",
+        "description": "پیتزا مخلوط ۲۳ سانتی متری، چیکن چیز ژامبو پلاس، استرامبولی استیک پنیری، ۳ عدد نوشابه قوطی",
+        "point": 4.7,
+        "price": 618000,
+        "isFoddparty": true,
+        "isPapular": false
+      },
+      {
+        "category": "کمبو",
+        "title": "کمبو شیلا",
+        "img": "/images/restaurants/foods/pizza-shila/combo-shila.jpg",
+        "description": "استرامبولی استیک پنیری، چیکن چیز ژامبو پلاس، ۲ عدد نوشابه قوطی",
+        "point": 4.6,
+        "price": 435000,
+        "isFoddparty": false,
+        "isPapular": true
+      },
+      {
+        "category": "پیتزا فیکس",
+        "title": "پیتزا فیکس مخلوط",
+        "img": "/images/restaurants/foods/pizza-shila/pizza-fix-makhlot.jpg",
+        "description": "ژامبون گوشت و مرغ، هات داگ فرانکفورتر، قارچ، زیتون، گوجه، فلفل دلمه ای، پنیر موزارلا، سس مخصوص، سیب زمینی سرخ شده",
+        "point": 4.7,
+        "price": 138000,
+        "isFoddparty": false,
+        "isPapular": false
+      },
+      {
+        "category": "پیتزا فیکس",
+        "title": "پیتزا فیکس گوشت و قارچ",
+        "img": "/images/restaurants/foods/pizza-shila/pizza-fix-gosht-gharch.jpg",
+        "description": "گوشت چرخ‌کرده طعم‌دار، قارچ، فلفل دلمه‌ای، پیاز، پنیر موزارلا، سس مخصوص، سیب‌زمینی سرخ‌شده",
+        "point": 4.6,
+        "price": 184000,
+        "isFoddparty": false,
+        "isPapular": false
+      },
+      {
+        "category": "پیتزا ",
+        "title": "پیتزا چیکن استروگانف (۲۳ سانتی متری)",
+        "img": "/images/restaurants/foods/pizza-shila/pizza-chicken-straganof.jpg",
+        "description": "گوشت مرغ تنوری، سس آلفردو، پیاز سرخ شده، سس خامه، سس سیر، پنیر مخصوص",
+        "point": 3.5,
+        "price": 232000,
+        "isFoddparty": false,
+        "isPapular": false
+      },
+      {
+        "category": "پیتزا ",
+        "title": "پیتزا سوجوک (۳۰ سانتی متری)",
+        "img": "/images/restaurants/foods/pizza-shila/pizza-chicken.jpg",
+        "description": "دونر گوشت، کالباس سوجوک ۸۰%، قارچ، پنیر موزارلا، کنجد، سس مخصوص، سیب زمینی سرخ شده",
+        "point": 4.8,
+        "price": 232000,
+        "isFoddparty": true,
+        "isPapular": false
+      },
+      {
+        "category": "استرامبولی ",
+        "title": "استرامبولی دونر استیک پنیزی",
+        "img": "/images/restaurants/foods/pizza-shila/stramboli-doner-stake-paniri.jpg",
+        "description": "دونر گوشت کبابی، سس آلفردو، پیاز سرخ شده، پنیر مخصوص، سیب زمینی سرخ شده",
+        "point": 4.4,
+        "price": 222000,
+        "isFoddparty": false,
+        "isPapular": false
+      },
+      {
+        "category": "برگر ",
+        "title": "همبرگر",
+        "img": "/images/restaurants/foods/pizza-shila/fresh-mashrom-burger.jpg",
+        "description": "همبرگر با گوشت تازه، قارچ طعم دار شده، پنیر دیپ گودا، پیاز سرخ شده، خیارشور، سس مخصوص",
+        "point": 4.5,
+        "price": 194000,
+        "isFoddparty": false,
+        "isPapular": false
+      }
+    ]
+  }
+]

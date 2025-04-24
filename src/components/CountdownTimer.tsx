@@ -26,7 +26,7 @@ function CountdownTimer() {
   return (
     <div className=" flex mx-auto items-center justify-center text-center text-white text-2xl">
       {toPersianDigits(formatTime(timeLeft))}
-      <img className="h-5 mr-6 " src="/images/clock.svg" alt="clock" />
+      <img className="h-5 mr-6 " src="/images/icons/clock.svg" alt="clock" />
     </div>
   );
 }

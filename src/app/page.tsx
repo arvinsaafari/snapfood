@@ -38,7 +38,7 @@ export default function Home() {
             </div>
             <div className=" mt-8">
               <img
-                src="/images/1_jek_non_active.png"
+                src="/images/icons/1_jek_non_active.png"
                 className="h-24 mx-auto"
                 alt="1_jek_non_active"
               />
@@ -46,7 +46,7 @@ export default function Home() {
 
             <div className="mt-6  text-center">
               <div className="flex w-auto mx-auto justify-center text-white">
-                <img className="ml-2" src="/images/sparkler.svg" alt="" />
+                <img className="ml-2" src="/images/icons/sparkler.svg" alt="" />
                 <h2 className="text-3xl md:text-2xl"> فود پارتی</h2>
               </div>
               <span className="block text-white mt-2 text-center md:text-xs">
@@ -55,7 +55,11 @@ export default function Home() {
               <button className=" py-2 mt-2 px-9 text-black bg-white rounded-3xl md:">
                 <span className="flex">
                   {"مشاهده همه  "}
-                  <img className="mr-3" src="/images/left-black.svg" alt="" />
+                  <img
+                    className="mr-3"
+                    src="/images/icons/left-black.svg"
+                    alt=""
+                  />
                 </span>
               </button>
             </div>
@@ -118,16 +122,16 @@ export default function Home() {
                 </button>
               </div>
               <div className="flex  flex-wrap gap-1  w-full mt-8">
-                <img src="images/download-bazaar.svg" alt="bazar" />
-                <img src="images/download-myket.svg" alt="bazar" />
-                <img src="images/download-iapps.svg" alt="bazar" />
-                <img src="images/download-sibapp.svg" alt="bazar" />
+                <img src="images/icons/download-bazaar.svg" alt="bazar" />
+                <img src="images/icons/download-myket.svg" alt="myket" />
+                <img src="images/icons/download-iapps.svg" alt="iapps" />
+                <img src="images/icons/download-sibapp.svg" alt="sibapp" />
               </div>
             </div>
           </div>
           <img
             className="absolute left-24 max-w-[380px] top-0 translate-y-[-25%] hidden lg:block"
-            src="/images/snapfood-app.png"
+            src="/images/icons/snapfood-app.png"
             alt="snapfood-app"
             width={423}
             height={636}
@@ -152,13 +156,17 @@ export default function Home() {
 
             <button className="bg-[#e9389f] px-4 py-2 rounded-lg text-white flex text-xl">
               {" "}
-              <img src="images/shop.svg" alt="shop-icon" className="ml-2" />
+              <img
+                src="images/icons/shop.svg"
+                alt="shop-icon"
+                className="ml-2"
+              />
               ثبت نام فروشندگان
             </button>
 
             <img
               className="hidden  lg:block absolute left-28 translate-y-[-100%]"
-              src="images/shop.png"
+              src="/images/icons/shop.png"
               alt="shop-png"
             />
           </div>

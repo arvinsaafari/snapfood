@@ -67,7 +67,11 @@ function Header() {
         <div className=" flex items-center space-x-8 ">
           <button onClick={handleOnClickOrders} className="flex space-x-2">
             <p className="hidden lg:block"> سفارش ها</p>
-            <img src="/images/order.svg" alt="order" className="w-5 h-5" />
+            <img
+              src="/images/icons/order.svg"
+              alt="order"
+              className="w-5 h-5"
+            />
           </button>
           <button
             ref={profileButtonRef}
@@ -76,11 +80,11 @@ function Header() {
               SetIsProfileMenuOpen((prev) => !prev);
             }}
           >
-            <img src="/images/user.svg" alt="user" className="w-5 h-5" />
+            <img src="/images/icons/user.svg" alt="user" className="w-5 h-5" />
           </button>
           <button>
             <img
-              src="/images/search.svg"
+              src="/images/icons/search.svg"
               alt="search"
               className="w-5 h-5 block lg:hidden"
             />
@@ -90,7 +94,7 @@ function Header() {
         <div className="hidden lg:flex justify-center w-[40%] max-w-[500px] min-w-[250px]">
           <div className="relative w-full">
             <img
-              src="/images/search.svg"
+              src="/images/icons/search.svg"
               alt="search icon"
               className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5"
             />
@@ -108,7 +112,7 @@ function Header() {
             className="flex items-center space-x-2 cursor-pointer"
           >
             <img
-              src="/images/bottom-purple.svg"
+              src="/images/icons/bottom-purple.svg"
               alt="arrow"
               className="w-3 h-3"
             />
@@ -120,12 +124,12 @@ function Header() {
                 : "آدرس خود را انتخاب کنید"}
             </p>
 
-            <img src="/images/location.svg" alt="location" />
+            <img src="/images/icons/location.svg" alt="location" />
           </div>
           <a href="#">
             <img
               className="h-10 ml-8 hidden md:block"
-              src="/images/logo.png"
+              src="/images/icons/logo.png"
               alt="logo"
             />
           </a>
@@ -153,10 +157,10 @@ function Header() {
             >
               <div className="flex space-x-2">
                 <button className="text-green-500">
-                  <img src="/images/edit.svg" alt="" />
+                  <img src="/images/icons/edit.svg" alt="edit " />
                 </button>
                 <button className="text-red-500">
-                  <img src="/images/delete.svg" alt="" />
+                  <img src="/images/icons/delete.svg" alt="delete" />
                 </button>
               </div>
 
@@ -225,7 +229,11 @@ function Header() {
               <button className="bg-[#92929233] flex p-2 border items-center rounded-xl justify-center text-[14px] w-[48%]">
                 {" "}
                 مشاهده فاکتور
-                <img className="ml-2 h-4" src="images/refresh.svg" alt="" />
+                <img
+                  className="ml-2 h-4"
+                  src="images/icons/refresh.svg"
+                  alt=""
+                />
               </button>
               <button className="bg-[#92929233] flex p-2 border items-center justify-center rounded-xl text-[14px] w-[48%]">
                 {" "}

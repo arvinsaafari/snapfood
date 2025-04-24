@@ -25,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
           onClick={onClose}
           className="absolute top-3 right-3 p-2 hover:opacity-70 transition"
         >
-          <img src="/images/exit.svg" alt="Close" />
+          <img src="/images/icons/exit.svg" alt="Close" />
         </button>
 
         <h2 className="text-xl font-bold mb-4 text-center">{title}</h2>

@@ -2,25 +2,65 @@
 
 import { useState, useEffect } from "react";
 
+interface Comment {
+  userId: number;
+  userName: string;
+  date: string;
+  comment: string;
+  tags: string[];
+  star: number;
+  replay?: {
+    userId: string;
+    comment: string;
+  };
+}
+
 interface FoodItem {
+  category: string;
   title: string;
   img: string;
   description: string;
-  point: string;
+  point: number;
   price: number;
-  isFoodParty: boolean;
+  remaining: number;
+  comments: Comment[];
+}
+
+interface Discount {
+  hasDiscount: boolean;
+  percentage: number;
+}
+
+interface Delivery {
+  hasDelivery: boolean;
+  deliveryFee: number;
+}
+
+interface Rating {
+  point: number;
+  star: number;
 }
 
 interface Restaurant {
   id: number;
   title: string;
   img: string;
-  stars: string;
-  point: string;
-  subjects: string;
+  tags: string[];
   icon: string;
   category: string;
-  foods: FoodItem[];
+  discount: Discount;
+  Addres: string;
+  rating: Rating;
+  delivery: Delivery;
+  woirkingHours: string;
+  paymentMethods: string;
+  minimumCart: number;
+  comments: Comment[];
+  foods: {
+    foodParty: FoodItem[];
+    papular: FoodItem[];
+    normalfoods: FoodItem[];
+  };
 }
 
 interface RestaurantsFilterProps {
@@ -28,21 +68,19 @@ interface RestaurantsFilterProps {
 }
 
 function RestaurantsFilter({ selectedCategory }: RestaurantsFilterProps) {
+  const toPersianDigits = (num: number) => num.toLocaleString("fa-IR");
   const [data, setData] = useState<Restaurant[]>([]);
 
   useEffect(() => {
-    fetch("/data/resturant.json")
+    fetch("/data/restaurants.json")
       .then((res) => res.json() as Promise<Restaurant[]>)
       .then((res) => setData(res));
   }, []);
 
-  useEffect(() => {
-    console.log("Selected Category changed to:", selectedCategory);
-  }, [selectedCategory]);
-
-  const filteredData = data.filter(
-    (item) => item.category === selectedCategory
-  );
+  const filteredData =
+    selectedCategory === "همه دسته بندی ها"
+      ? data
+      : data.filter((item) => item.category === selectedCategory);
 
   return (
     <>
@@ -51,7 +89,7 @@ function RestaurantsFilter({ selectedCategory }: RestaurantsFilterProps) {
           هیچ رستورانی در این دسته موجود نمی‌باشد.
         </p>
       ) : (
-        filteredData.map(({ title, icon, img, point, stars, subjects, id }) => (
+        filteredData.map(({ title, icon, img, rating, tags, id, delivery }) => (
           <div
             key={id}
             className="shadow-md w-full h-fit border rounded-xl flex flex-col overflow-hidden pb-4"
@@ -81,28 +119,41 @@ function RestaurantsFilter({ selectedCategory }: RestaurantsFilterProps) {
 
               <div className="flex justify-center mt-2">
                 <div className="flex items-center">
-                  <span>{stars}</span>
+                  <span>{toPersianDigits(rating.star)}</span>
                   <img
                     className="h-4 mr-1"
-                    src="/images/rate-star.svg"
+                    src="/images/icons/rate-star.svg"
                     alt="rate-star"
                   />
                 </div>
-                <div className="mr-4 text-gray-400">({point})</div>
+                <div className="mr-4 text-gray-400">
+                  ({toPersianDigits(rating.point)})
+                </div>
               </div>
 
-              <div className="mt-2 text-sm text-gray-400">{subjects}</div>
+              <div className="mt-2 text-sm text-gray-400 flex flex-wrap gap-2">
+                {tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="bg-gray-100 text-gray-600 px-2 py-1 rounded-lg text-xs"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
               <div className="mt-6">
                 <div className="flex">
                   <img
                     className="h-5 ml-2"
-                    src="images/courier.svg"
+                    src="images/icons/courier.svg"
                     alt="courier"
                   />
                   <div className="flex justify-center items-center">
                     <p className="text-xs">پیک فروشنده</p>
-                    <p className="text-xs mr-3">{"۱۳,۴۰۰ تومان"}</p>
+                    <p className="text-xs mr-3">
+                      {toPersianDigits(delivery.deliveryFee)} تومان
+                    </p>
                   </div>
                 </div>
               </div>
