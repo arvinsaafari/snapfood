@@ -10,7 +10,7 @@ import { Restaurant } from "@/types/restaurant";
 
 const toPersianDigits = (num: number) => num.toLocaleString("fa-IR");
 
-export default function RestaurantPage() {
+function RestaurantPage() {
   const [selectedFoodCategory, setSelectedFoodCategory] =
     useState<string>("فود پارتی");
 
@@ -157,3 +157,5 @@ export default function RestaurantPage() {
     </div>
   );
 }
+
+export default RestaurantPage;
