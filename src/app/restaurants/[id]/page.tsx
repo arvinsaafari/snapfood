@@ -4,10 +4,10 @@ import { useParams } from "next/navigation";
 import restaurantData from "../../../../public/data/restaurants.json";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FoodCard from "@/components/FoodCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Restaurant } from "@/types/restaurant";
-
+import CountdownTimer from "@/components/CountdownTimer";
+import FoodCard from "@/components/FoodCard";
 const toPersianDigits = (num: number) => num.toLocaleString("fa-IR");
 
 function RestaurantPage() {
@@ -16,7 +16,13 @@ function RestaurantPage() {
 
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
   const params = useParams();
+  const foods = restaurant?.foods || [];
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({
+    فودپارتی: null,
+    پرطرفدارها: null,
+  });
 
+  ``;
   useEffect(() => {
     if (params?.id) {
       const foundRestaurant = restaurantData.find(
@@ -25,6 +31,18 @@ function RestaurantPage() {
       setRestaurant((foundRestaurant as Restaurant) || null);
     }
   }, [params?.id]);
+
+  useEffect(() => {
+    restaurant?.foods.map((food) => {
+      if (!sectionRefs.current[food.category]) {
+        sectionRefs.current[food.category] = null;
+      }
+    });
+  }, [restaurant]);
+
+  const toScroll = (category: string) => {
+    sectionRefs.current[category]?.scrollIntoView({ behavior: "smooth" });
+  };
 
   if (!restaurant) {
     return <div className="text-center mt-10">رستوران پیدا نشد :/</div>;
@@ -79,7 +97,7 @@ function RestaurantPage() {
           </div>
         </div>
 
-        <button className="p-2 bg-white shadow-lg border border-black rounded-full w-[95%] mx-auto flex justify-center items-center mt-4">
+        <button className="p-2 bg-white shadow-lg  rounded-full w-[95%] mx-auto flex justify-center items-center mt-4">
           <span className="text-sm text-green-500 mr-2">
             ثبت اطلاعات و نظرات
           </span>
@@ -96,7 +114,10 @@ function RestaurantPage() {
                 ? "text-black font-bold before:absolute before:w-[2px] before:h-full before:right-[-9px] before:bg-black"
                 : ""
             }`}
-            onClick={() => setSelectedFoodCategory("فود پارتی")}
+            onClick={() => {
+              setSelectedFoodCategory("فود پارتی");
+              toScroll("فود پارتی");
+            }}
           >
             فود پارتی
             <img
@@ -112,7 +133,10 @@ function RestaurantPage() {
                 ? "text-black font-bold before:absolute before:w-[2px] before:h-full before:right-[-6px] before:bg-black"
                 : ""
             }`}
-            onClick={() => setSelectedFoodCategory("پرطرفدارها")}
+            onClick={() => {
+              setSelectedFoodCategory("پرطرفدارها");
+              toScroll("پرطرفدارها");
+            }}
           >
             پرطرفدارها
           </div>
@@ -125,7 +149,10 @@ function RestaurantPage() {
                     ? "text-black font-bold before:absolute before:w-[2px] before:h-full before:right-[-6px] before:bg-black"
                     : ""
                 }`}
-                onClick={() => setSelectedFoodCategory(uniqueCategory)}
+                onClick={() => {
+                  setSelectedFoodCategory(uniqueCategory);
+                  toScroll(uniqueCategory);
+                }}
                 key={uniqueCategory}
               >
                 {uniqueCategory}
@@ -133,22 +160,30 @@ function RestaurantPage() {
             )
           )}
         </div>
-        <div dir="rtl" className="container w-[90%] mx-auto mt-4">
-          {selectedFoodCategory === "فود پارتی" &&
-            restaurant.foods
-              .filter((f) => f.isFoddparty)
-              .map((food) => (
-                <FoodCard key={food.title} food={food} variant="foodparty" />
-              ))}
-          {selectedFoodCategory === "پرطرفدارها" &&
-            restaurant.foods
-              .filter((f) => f.isPapular)
-              .map((food) => <FoodCard key={food.title} food={food} />)}
-          {selectedFoodCategory !== "فود پارتی" &&
-            selectedFoodCategory !== "پرطرفدارها" &&
-            restaurant.foods
-              .filter((f) => f.category === selectedFoodCategory)
-              .map((food) => <FoodCard key={food.title} food={food} />)}
+        <div
+          dir="rtl"
+          className="container border border-gray-300 rounded-lg h-auto w-[90%] overflow-hidden mx-auto mt-4"
+        >
+          <div
+            dir="rtl"
+            className=" px-4 justify-between flex items-center w-full bg-gradient-to-r h-14 from-[#FA5A98] to-[#E32892]"
+          >
+            <span className="flex gap-x-2 text-white">
+              <img src="/images/icons/sparkler.svg" alt="sparkler" /> فودپارتی
+            </span>
+
+            <div>
+              <CountdownTimer />
+            </div>
+          </div>
+
+          <div>
+            <FoodCard
+              sectionRefs={sectionRefs}
+              foods={foods}
+              selectedFoodCategory={selectedFoodCategory}
+            />
+          </div>
         </div>
       </main>
       <footer>

@@ -1,89 +1,137 @@
-import { Foods } from "@/types/restaurant";
+import type { Foods } from "@/types/restaurant";
+
+import { RefObject } from "react";
 
 interface FoodCardProps {
-  food: Foods;
-  variant?: "default" | "foodparty";
+  foods: Foods[];
+  sectionRefs: RefObject<{ [key: string]: HTMLDivElement | null }>;
+  selectedFoodCategory?: string;
 }
 
-const toPersianDigits = (num: number) => num.toLocaleString("fa-IR");
+function FoodCard({ foods, sectionRefs, selectedFoodCategory }: FoodCardProps) {
+  const toPersianDigits = (num: number) => num.toLocaleString("fa-IR");
 
-function FoodCard({ food, variant = "default" }: FoodCardProps) {
-  if (variant === "foodparty") {
+  const foodPartyFoods = foods.filter((food) => food.isFoodparty);
+  const papularFoods = foods.filter((food) => food.isPapular);
+
+  const groupedByCategory: { [category: string]: Foods[] } = {};
+
+  foods.forEach((food) => {
+    if (!groupedByCategory[food.category]) {
+      groupedByCategory[food.category] = [];
+    }
+    groupedByCategory[food.category].push(food);
+  });
+
+  const renderFoods = (food: Foods, index: number, category?: string) => {
     return (
-      <div className="snap-center h-auto mt-4 py-1 px-2 flex items-center flex-col rounded-md bg-white w-[90%] flex-shrink-0 mx-[5%] md:w-[60%] xl:w-[30%] xl:mx-[2%]">
-        <div className="pt-4">
-          <span className="block text-center mx-auto text-sm text-gray-700">
-            {food.title}
-          </span>
+      <div className="border border-gray-200 px-2 " key={index}>
+        <div className=" flex p-2 justify-center items-center">
+          <div>
+            <h2 className="text-lg">{food.title}</h2>
+            <p className=" w-[90%] text-xs text-gray-400 mt-3">
+              {food.description}
+            </p>
+          </div>
+          <img className="h-28" src={food.img} alt="food-img" />
         </div>
-        <div className="flex flex-col items-center">
-          <img
-            className="rounded-xl h-36 mt-4"
-            src={food.img}
-            alt={food.title}
-          />
-          <h2 className="text-center mt-4 text-base font-bold">{food.title}</h2>
+        <div
+          className={`text-sm mx-auto mb-2 ${
+            food.remaining === 1 ? `text-red-500` : `text-black`
+          }`}
+        >
+          {food.remaining &&
+            `${toPersianDigits(food.remaining)} عدد باقی مانده`}
         </div>
-        <div className="w-11/12 mt-8">
-          <div className="justify-between flex w-full">
-            <div className="flex items-center">
-              <span className="text-xl">{toPersianDigits(food.point)}</span>
-              <img
-                className="h-4 mr-1"
-                src="/images/icons/rate-star.svg"
-                alt="rate-star"
-              />
+        <div>
+          <div
+            className={`h-[2px] mx-auto mb-4 ${
+              food.remaining === 1 ? `bg-red-500` : `bg-gray-300`
+            }`}
+          ></div>
+
+          <div className="flex justify-between my-6 mx-auto w-[95%]">
+            <div className="flex items-center justify-center">
+              {food.discount?.hasDiscount && (
+                <span className=" text-pink-700 text-sm font-bold ml-1 bg-pink-100 p-1">
+                  {toPersianDigits(food.discount.percentage)}٪
+                </span>
+              )}
+              <div className="flex flex-col">
+                <span
+                  className={` ${food.discount?.hasDiscount === true ? `line-through text-gray-400 text-xs` : `text-blck`}`}
+                >
+                  {toPersianDigits(food.price)} تومان
+                </span>
+                {food.discount?.hasDiscount === true && (
+                  <span className="text-sm text-black font-bold">
+                    {toPersianDigits(
+                      food.discount?.hasDiscount
+                        ? Math.round(
+                            food.price * (1 - food.discount.percentage / 100)
+                          )
+                        : food.price
+                    )}{" "}
+                    تومان
+                  </span>
+                )}
+              </div>
             </div>
+
             <div>
-              <span className="text-white text-lg bg-[#FF00A6] rounded-lg px-1 mr-2">
-                {toPersianDigits(food.price)}
-              </span>
+              <button className="bg-white shadow-md px-6 py-2 text-sm text-center text-pink-500 rounded-full">
+                افزودن
+              </button>
             </div>
           </div>
-          <div className="flex justify-between w-full mt-3">
-            <div>
-              <span className="text-red-600 text-xs">
-                {food.remaining &&
-                  `${toPersianDigits(food.remaining)} عدد باقی مانده`}
-              </span>
-            </div>
-          </div>
         </div>
-        <div className="w-11/12 h-[3px] bg-red-500 mt-8 mb-3"></div>
       </div>
     );
-  }
-
+  };
   return (
-    <div className="mb-4 p-4 bg-white rounded-lg shadow">
-      <div className="flex items-center gap-4">
-        <img
-          src={food.img}
-          alt={food.title}
-          className="w-20 h-20 rounded-lg object-cover"
-        />
-        <div>
-          <h3 className="font-bold">{food.title}</h3>
-          <p className="text-sm text-gray-600">{food.description}</p>
-          <div className="flex items-center mt-2">
-            <span className="text-lg font-bold">
-              {toPersianDigits(food.price)} تومان
-            </span>
-            <div className="flex items-center mr-4">
-              <img
-                className="h-4 mr-1"
-                src="/images/icons/rate-star.svg"
-                alt="rate-star"
-              />
-              <span>{toPersianDigits(food.point)}</span>
-            </div>
-          </div>
+    <div>
+      <div>
+        <div
+          ref={(el) => {
+            sectionRefs.current["فود پارتی"] = el;
+          }}
+        >
+          {foodPartyFoods.map((food, index) => renderFoods(food, index))}
         </div>
       </div>
+
+      <div>
+        <div className="text-center text-xs mt-8 mb-2">پرطرفدارها</div>
+        <div
+          ref={(el) => {
+            sectionRefs.current["پرطرفدارها"] = el;
+          }}
+        >
+          {papularFoods.map((food, index) => renderFoods(food, index))}
+        </div>
+      </div>
+
+      {Object.keys(groupedByCategory).length > 0 && (
+        <div className="mb-8">
+          {Object.keys(groupedByCategory).map((category) => (
+            <div key={category} className="mb-6">
+              <div className="text-center text-xs mt-8 mb-2 text-gray-700">
+                {category}
+              </div>
+              <div
+                ref={(el) => {
+                  sectionRefs.current[category] = el;
+                }}
+              >
+                {groupedByCategory[category].map((food, index) =>
+                  renderFoods(food, index, category)
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
-
-FoodCard.displayName = "FoodCard";
-
 export default FoodCard;

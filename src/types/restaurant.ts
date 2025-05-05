@@ -22,6 +22,9 @@ export interface Foods {
   comments?: Comment[];
   isFoddparty: boolean;
   isPapular: boolean;
+  restaurantTitle?: string;
+  discountPercentage?: number;
+  deliveryFee?: number;
 }
 
 export interface Discount {
