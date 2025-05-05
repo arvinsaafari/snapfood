@@ -40,6 +40,27 @@ function RestaurantPage() {
     });
   }, [restaurant]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const entries = Object.entries(sectionRefs.current);
+
+      for (let [category, element] of entries) {
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top <= 200) {
+            setSelectedFoodCategory(category);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const toScroll = (category: string) => {
     sectionRefs.current[category]?.scrollIntoView({ behavior: "smooth" });
   };
